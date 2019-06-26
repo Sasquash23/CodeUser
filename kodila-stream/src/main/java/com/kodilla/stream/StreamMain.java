@@ -1,11 +1,14 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.ExecuteSaySomething;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.lambda.Processor;
 import com.kodilla.stream.lambda.SaySomething;
 import com.kodilla.stream.reference.FunctionalCalculator;
+
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
@@ -41,7 +44,23 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+        System.out.println("\nText beautifier");
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+        String beautifierText = poemBeautifier.beautify("Text to beautify", (text -> text.toUpperCase()));
+        System.out.println(beautifierText);
+        System.out.println(poemBeautifier.beautify("Text to beautify", (text -> text.toLowerCase())).toString());
+        System.out.println(poemBeautifier.beautify("Text to beautify", (text -> "Start: " + text + "...End")).toString());
+        System.out.println(poemBeautifier.beautify("Text to beautify", (text -> text.replace(" ", "_"))).toString());
+        System.out.println(poemBeautifier.beautify("Text to beautify", (text -> "Text has " + text.length() + " letters ->" + text )).toString());
+        System.out.println(poemBeautifier.beautify("Text to beautify", (text -> text.concat(String.valueOf(text.hashCode())))).toString());
+
+        String beautifierText2 = poemBeautifier.beautify("Text to beautify", (text -> text.chars()
+                .mapToObj(textToChar -> String.valueOf((char) textToChar))
+                .collect(Collectors.joining("/\\"))
+        ));
+        System.out.println(beautifierText2);
+
+        //System.out.println("Using Stream to generate even numbers from 1 to 20");
+        //NumbersGenerator.generateEven(20);
     }
 }
