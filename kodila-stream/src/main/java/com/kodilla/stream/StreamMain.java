@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-
         Forum forum = new Forum();
         Map<Integer, ForumUser> resultMapOfForumUsers = forum.getUserList().stream()
                 .filter(user -> user.getSex()=='M')
@@ -34,6 +33,7 @@ public class StreamMain {
                 //.map(s -> s.substring(1, s.indexOf(' ')))
                 .map(s -> s.substring(0, s.indexOf(' ') + 2) + ".")
                 .filter(s -> s.substring(0, 1).equals("M"))
+                //.forEach(s -> System.out.println(s));
                 .forEach(System.out::println);*/
 
         // 2 implementation
@@ -63,6 +63,7 @@ public class StreamMain {
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);*/
 
+        System.out.println("Final output of Stream will be String:");
         BookDirectory theBookDirectory = new BookDirectory();
         String theResultStringOfBooks = theBookDirectory.getList().stream()
                 .filter(book -> book.getYearOfPublication() > 2005)
