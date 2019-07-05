@@ -1,4 +1,6 @@
-package com.kodilla.exception.main;
+package com.kodilla.exception.io;
 
-public class FileReaderException {
+public class FileReaderException extends Exception{
+
+
 }
