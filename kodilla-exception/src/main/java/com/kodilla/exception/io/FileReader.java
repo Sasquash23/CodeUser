@@ -19,7 +19,7 @@ public class FileReader {
         Path path = Paths.get(file.getPath());
 
         // Test IOException
-        // Path path = Paths.get("file/naames.txt");
+        // Path path = Paths.get("file/names.txt");
 
         try {
             Stream<String> fileLines = Files.lines(path);
