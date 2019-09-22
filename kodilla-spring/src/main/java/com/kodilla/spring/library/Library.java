@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+//@Service
 public final class Library {
     private final List<String> books = new ArrayList<>();
 
@@ -16,7 +16,6 @@ public final class Library {
 
     public Library() {
     }
-
 
     public void saveToDb() {
         libraryDbController.saveData();
