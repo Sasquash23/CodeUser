@@ -6,13 +6,15 @@ abstract class Product {
     private String productName;
     private int productPrice;
     private FoodProducer producer;
+    private String producerName;
     private String additionalInfo;
     private int productQunatityMagazin;
 
-    public Product(String productName, int productPrice, FoodProducer producer, String additionalInfo, int productQunatityMagazin) {
+    public Product(FoodProducer producer, String productName, int productPrice, String additionalInfo, int productQunatityMagazin) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.producer = producer;
+        this.producerName = producer.getClass().getSimpleName();
         this.additionalInfo = additionalInfo;
         this.productQunatityMagazin = productQunatityMagazin;
     }
@@ -55,6 +57,10 @@ abstract class Product {
 
     public int getProductQunatityMagazin() {
         return productQunatityMagazin;
+    }
+
+    public String getProducerName() {
+        return producerName;
     }
 }
 

@@ -2,7 +2,7 @@ package com.kodilla.good.patterns.food2Door;
 
 public class GlutenFreeShopProduct extends Product {
 
-    public GlutenFreeShopProduct(String productName, int productPrice, FoodProducer producer, String additionalInfo, int productQunatityMagazin) {
-        super(productName, productPrice, producer, additionalInfo, productQunatityMagazin);
+    public GlutenFreeShopProduct( FoodProducer producer, String productName, int productPrice, String additionalInfo, int productQunatityMagazin) {
+        super(producer, productName, productPrice,  additionalInfo, productQunatityMagazin);
     }
 }
