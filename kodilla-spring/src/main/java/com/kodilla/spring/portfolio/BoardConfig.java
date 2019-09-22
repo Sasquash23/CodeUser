@@ -1,5 +1,6 @@
 package com.kodilla.spring.portfolio;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -7,8 +8,9 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class BoardConfig {
     @Bean
-    public Board getBoard() {
-        return new Board(createToDoList(), createInProgressList(), createDoneList());
+    @Autowired
+    public Board getBoard(TaskList taskToDo, TaskList taskInProgress, TaskList taskDone) {
+        return new Board(taskToDo, taskInProgress, taskDone);
     }
 
     @Bean(name = "taskToDo")
