@@ -26,3 +26,4 @@ public final class Rectangle implements Shape {
         return 2 * width + 2 * length;
     }
 }
+
