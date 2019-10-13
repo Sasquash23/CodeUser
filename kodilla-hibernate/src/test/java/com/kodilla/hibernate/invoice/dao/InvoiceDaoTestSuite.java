@@ -51,7 +51,7 @@ public class InvoiceDaoTestSuite {
 
         //Then
         Assert.assertEquals(3, size);
-        Assert.assertEquals(1, id);
+        Assert.assertNotEquals(0, id);
 
         //CleanUp
         invoiceDao.deleteById(id);
