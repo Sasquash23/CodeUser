@@ -17,9 +17,9 @@ import java.util.List;
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
-    private CompanyDao companyDao = null;
+    private CompanyDao companyDao;
     @Autowired
-    private EmployeeDao employeeDao = null;
+    private EmployeeDao employeeDao;
 
     private Employee johnSmith = null;
     private Employee stephanieClarckson = null;
