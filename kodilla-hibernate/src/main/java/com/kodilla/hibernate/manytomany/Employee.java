@@ -5,6 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.retrieveEmployeesByLastname",
+                query = "FROM Employee WHERE lastname > :LASTNAME")
+})
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -47,6 +52,7 @@ public class Employee {
             joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
             inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
     )
+
     public List<Company> getCompanies() {
         return companies;
     }
