@@ -86,6 +86,7 @@ public class CompanyDaoTestSuite {
             companyDao.deleteById(greyMatterId);
         } catch (Exception e) {
             //do nothing
+            System.out.println(e);
         }
     }
 
@@ -99,18 +100,23 @@ public class CompanyDaoTestSuite {
         //When
         List<Employee> actualEmployee = employeeDao.retrieveEmployeesByLastname("Smith");
 
-        /*System.out.println("List employee");
+        System.out.println("List employee");
+        System.out.println(actualEmployee);
         for(Employee model : actualEmployee) {
             System.out.println(model.getLastname() + " dd " + model.getFirstname());
-        }*/
+        }
 
         //Then
-        try {
+        Assert.assertEquals(johnSmith.getLastname(), actualEmployee.get(0).getLastname());
+        Assert.assertEquals(1, actualEmployee.size());
+
+        /*try {
             Assert.assertEquals(johnSmith.getLastname(), actualEmployee.get(0).getLastname());
             Assert.assertEquals(1, actualEmployee.size());
         } catch (Exception e) {
             //do nothing
-        }
+            System.out.println(e);
+        }*/
     }
 
     @Test
@@ -124,10 +130,11 @@ public class CompanyDaoTestSuite {
         List<Company> greyCompany = companyDao.retrieveCompanyNameAfterThreeFirstLetter("Gre");
 
         //Then
-        try {
+        Assert.assertEquals(1, greyCompany.size());
+        /*try {
             Assert.assertEquals(1, greyCompany.size());
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }
